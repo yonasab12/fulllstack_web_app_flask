@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --text-color: #00fbff;
+            --bg-color: #323234;
+            --white: #fff;
+            --black: #000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--white);
+        }
+
+        /* Header Styles */
+        header {
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: var(--bg-color);
+            border-bottom: 2px solid var(--text-color);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            font-size: 2rem;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--text-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: #fa7e12;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--text-color);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--white);
+        }
+
+        /* Main Content */
+        .wrapper {
+            margin-top: 100px;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .content-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card i {
+            font-size: 3rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .card h2 {
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .card p {
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: #1a1a1a;
+            padding: 3rem 0;
+            margin-top: auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h3, .footer-col h4 {
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--text-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: #ddd;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--text-color);
+        }
+
+        .bottom-bar {
+            text-align: center;
+            padding: 1rem;
+            border-top: 1px solid #333;
+            margin-top: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--bg-color);
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .wrapper {
+                margin-top: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#"><span>Fresh</span>com</a>
+            </div>
+            <ul>
+                <li><a href="{{ url_for('fresh') }}">Fresh</a></li>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('remedial') }}">Remedial</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('note') }}">note</a></li>
+                <li><a href="{{ url_for('quiz') }}">quiz</a></li>
+                
+                <li><a href="{{ url_for('story') }}">story</a></li>
+            </ul>
+            <button class="hamburger">
+                <div class="bar"></div>
+            </button>
+        </nav>
+    </header>
+    
+    <div class="wrapper">
+        <h1>Our Services</h1>
+        <p>We offer the full spectrum of services to help people work better. Everything from creating standards of excellence to training your people.</p>
+        <div class="content-box">
+            <!-- Service Cards -->
+            <!-- ... (keep your existing card structure) ... -->
+        </div>
+    </div>
+
+    <footer class="footer">
+        <!-- Footer Content -->
+        <!-- ... (keep your existing footer structure) ... -->
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('nav ul');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close menu on click outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav') && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

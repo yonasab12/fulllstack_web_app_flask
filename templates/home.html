@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freshcom Portfolio</title>
+    <style>
+        /* Your existing CSS remains unchanged */
+        :root {
+            --text-color: #00fbff;
+            --bg-color: #323234;
+            --white: #fff;
+            --black: #000;
+            --mob-color: #444444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        header {
+            background: var(--bg-color);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            font-size: 2rem;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--text-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-color);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--white);
+            transition: all 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            background: var(--bg-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 50px; /* Space between image and text */
+        }
+
+        /* Profile Image Styles */
+        .profile-image {
+            flex: 1;
+            position: relative;
+            text-align: center;
+        }
+
+        .profile-image img {
+            width: 100%;
+            max-width: 400px; /* Adjust image size */
+            border-radius: 50%; /* Make the image round */
+            box-shadow: 0 5px 15px rgba(0, 251, 255, 0.4); /* Glow effect */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .profile-image img:hover {
+            transform: scale(1.05); /* Zoom effect on hover */
+            box-shadow: 0 8px 20px rgba(0, 251, 255, 0.6); /* Stronger glow on hover */
+        }
+
+        .image-caption {
+            margin-top: 10px;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Hero Text Styles */
+        .hero-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            color: var(--text-color);
+            margin-bottom: 20px;
+        }
+
+        .hero-text h3 {
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            color: #ccc;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: var(--text-color);
+            color: var(--black);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 251, 255, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                gap: 0;
+                flex-direction: column;
+                background: var(--mob-color);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 20px 0;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hero-content {
+                flex-direction: column; /* Stack image and text on smaller screens */
+                text-align: center;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .profile-image img {
+                max-width: 400px; /* Smaller image on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="#"><span>Fresh</span>com</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('fresh') }}">Fresh</a></li>
+                
+                <li><a href="{{ url_for('remedial') }}">Remedial</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('note') }}">note</a></li>
+                <li><a href="{{ url_for('quiz') }}">quiz</a></li>
+                <li><a href="{{ url_for('service') }}">service</a></li>
+                <li><a href="{{ url_for('story') }}">story</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <!-- Profile Image on the Left -->
+                <div class="profile-image">
+                    <img src="images/be.jpg" alt="Yonas Abebe">
+                    <p class="image-caption">Front-End Developer & Designer</p>
+                </div>
+                <!-- Text on the Right -->
+                <div class="hero-text">
+                    <h1>Hi, I'm Bety </h1>
+                    <h3>Front-End Developer & Designer</h3>
+                    <p>Passionate about creating beautiful and functional web experiences. Specializing in transforming design concepts into responsive, user-friendly websites with modern technologies.</p>
+                    <a href="#" class="cta-button">View My Work</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navLinks.classList.toggle("active");
+        });
+
+        document.querySelectorAll(".nav-links a").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navLinks.classList.remove("active");
+        }));
+    </script>
+</body>
+</html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Contact Us Form</title>
+    <style>
+        /* Combined CSS */
+        @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        
+        :root {
+            --text-color: #00fbff;
+            --bg-color: #323234;
+            --white: #fff;
+            --black: #000;
+            --mob-color: #444444;
+            --secondary-color: #323234;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--bg-color);
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50px;
+            border: 6px solid var(--text-color);
+            box-shadow: 0 0 70px var(--text-color);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            z-index: 1;
+            font-size: 60px;
+            border-radius: 50px;
+            border: 6px solid var(--text-color);
+            box-shadow: 0 0 70px var(--text-color);
+        }
+
+        .logo a {
+            text-decoration: none;
+            font-size: 40px;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        span {
+            color: var(--text-color);
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 35px;
+            font-size: 18px;
+            list-style: none;
+            z-index: 1;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: 0.4s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--text-color);
+        }
+
+        button.hamburger {
+            font-size: 20px;
+            font-weight: 600;
+            padding: 12px 24px;
+            color: var(--black);
+            background: var(--text-color);
+            border: 2px solid var(--text-color);
+            border-radius: 50px;
+            box-shadow: 0 0 70px var(--text-color);
+            cursor: pointer;
+            transition: 0.5s ease-in;
+        }
+
+        button.hamburger:hover {
+            transform: translate(-5px);
+            color: var(--text-color);
+            background-color: transparent;
+        }
+
+        /* Contact Form Section */
+        .contact-form {
+            position: relative;
+            min-height: 100vh;
+            z-index: 0;
+            background: var(--secondary-color);
+            padding: 30px;
+            display: grid;
+            grid-template-rows: 1fr auto 1fr;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-form h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--white);
+        }
+
+        .contact-form h2 {
+            line-height: 40px;
+            margin-bottom: 5px;
+            font-size: 30px;
+            font-weight: 500;
+            color: var(--bg-color);
+            text-align: center;
+        }
+
+        .main {
+            position: relative;
+            display: flex;
+            margin: 30px 0;
+        }
+
+        .content {
+            flex-basis: 50%;
+            padding: 3em 3em;
+            background: var(--white);
+            box-shadow: 2px 9px 49px -17px rgba(0,0,0,0.1);
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+
+        .form-img {
+            flex-basis: 50%;
+            background: #f0f4f8;
+            padding: 40px;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+            display: grid;
+            align-items: center;
+        }
+
+        .form-img img {
+            max-width: 100%;
+        }
+
+        .btn, button, input {
+            border-radius: 35px;
+        }
+
+        .contact-form form {
+            margin: 30px 0;
+        }
+
+        .contact-form input,
+        textarea {
+            outline: none;
+            margin-bottom: 15px;
+            padding: 14px 20px;
+            width: 100%;
+            background: #fcfcfc;
+            border: none;
+            transition: 0.3s ease;
+        }
+
+        .contact-form button {
+            font-size: 18px;
+            color: var(--white);
+            width: 100%;
+            background: var(--bg-color);
+            padding: 14px 15px;
+            border: 1px solid var(--bg-color);
+            transition: 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            color: var(--text-color);
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: var(--black);
+            padding: 70px 0;
+        }
+
+        .footer-col {
+            width: 33.3%;
+            padding: 0 15px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            color: var(--white);
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .footer-col h4::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            background: var(--text-color);
+            height: 2px;
+            width: 50px;
+        }
+
+        .footer-col ul li a {
+            color: #bbbbbb;
+            transition: all 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+            padding-left: 8px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            border-radius: 12px;
+            background: var(--secondary-color);
+            color: var(--white);
+            transition: all 0.5s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .bottom-bar {
+            background: var(--secondary-color);
+            text-align: center;
+        }
+
+        .bottom-bar p {
+            color: var(--bg-color);
+            padding: 7px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main {
+                flex-direction: column;
+            }
+
+            .form-img {
+                border-radius: 0;
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
+            }
+
+            .content {
+                border-top-right-radius: 8px;
+            }
+
+            .footer-col {
+                width: 50%;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-col {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Your HTML content remains unchanged -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="#"><span>Fresh</span>com</a>
+                </div>
+                <ul>
+                    <li><a href="{{ url_for('fresh') }}">Fresh</a></li>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('remedial') }}">Remedial</a></li>
+                
+                <li><a href="{{ url_for('note') }}">note</a></li>
+                <li><a href="{{ url_for('quiz') }}">quiz</a></li>
+                <li><a href="{{ url_for('service') }}">service</a></li>
+                <li><a href="{{ url_for('story') }}">story</a></li>
+                </ul>
+                <button class="hamburger">
+                    <div class="bar"></div>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="contact-form">
+        <h1>Contact Us</h1>
+        <div class="container">
+            <div class="main">
+                <div class="content">
+                    <h2>Contact Us</h2>
+                    <form action="#" method="post">
+                        <input type="text" name="name" placeholder="Enter Your Name">
+                        <input type="email" name="email" placeholder="Enter Your Email">
+                        <textarea name="message" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn">Send <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+                <div class="form-img">
+                    <img src="bg1.png" alt="Contact illustration">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="footer">
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col">
+                        <h3>Quick Link</h3>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="service.html">Our Services</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Remedial</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h3>Contact Us</h3>
+                        <ul>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Email: yonasa278@gmail.com</a></li>
+                            <li><a href="#">Address: Addis Ababa, Ethiopia</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Follow Us</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-bar">
+                <p>&copy; 2023 Freshcom. All rights reserved.</p>
+            </div>
+        </footer>
+    </section>
+</body>
+</html>

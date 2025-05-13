@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+<section class="auth-section">
+    <div class="auth-container">
+        <h2>Create Account</h2>
+        <form class="auth-form" method="POST" action="{{ url_for('signup') }}">
+            <div class="form-group">
+                <input type="text" name="username" id="username" required>
+                <label for="username">Username</label>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" id="email" required>
+                <label for="email">Email</label>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" id="password" required>
+                <label for="password">Password</label>
+                <span class="pw-toggle">👁️</span>
+            </div>
+            <button type="submit" class="auth-btn">Sign Up</button>
+        </form>
+        <p class="auth-redirect">Already have an account? <a href="{{ url_for('login') }}">Log In</a></p>
+    </div>
+</section>
+{% endblock %}

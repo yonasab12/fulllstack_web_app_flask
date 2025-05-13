@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remedial Resources</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        :root {
+            --text-color: #00fbff;
+            --bg-color: #323234;
+            --white: #fff;
+            --black: #000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--white);
+        }
+
+        header {
+            background: var(--bg-color);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--text-color);
+            box-shadow: 0 0 20px var(--text-color);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            font-size: 2rem;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--text-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: #fa7e12;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--text-color);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--white);
+        }
+
+        .wrapper {
+            padding: 2rem;
+            min-height: 100vh;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card i {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .card h2 {
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .card a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #fa7e12;
+            color: var(--white);
+            border-radius: 25px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .card a:hover {
+            background: #f18930;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--bg-color);
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .logo a {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#"><span>Fresh</span>com</a>
+            </div>
+            <ul>
+                <li><a href="{{ url_for('fresh') }}">Fresh</a></li>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('remedial') }}">Remedial</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                
+                <li><a href="{{ url_for('quiz') }}">quiz</a></li>
+                <li><a href="{{ url_for('service') }}">service</a></li>
+                <li><a href="{{ url_for('story') }}">story</a></li>
+            </ul>
+            <button class="hamburger">
+                <div class="bar"></div>
+            </button>
+        </nav>
+    </header>
+
+    <section class="wrapper">
+        <h1>Remedial Resources</h1>
+        <p>We offer comprehensive resources to help students improve their academic performance through quality materials and practice exercises.</p>
+        
+        <div class="content-box">
+            <!-- Repeat this card structure for each subject -->
+            <div class="card">
+                <i class='bx bx-laptop'></i>
+                <h2>Mathematics</h2>
+                <p>Download practice materials and exercises</p>
+                <a href="maths.pdf">Download</a>
+            </div>
+
+            <!-- Add other cards following the same pattern -->
+            <!-- Example card -->
+            <div class="card">
+                <i class='bx bx-book'></i>
+                <h2>Biology</h2>
+                <p>Study guides and practice questions</p>
+                <a href="biology.pdf">Download</a>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('nav ul');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav') && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

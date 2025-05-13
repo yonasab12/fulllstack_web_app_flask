@@ -1,0 +1,14 @@
+flask
+flask-sqlalchemy
+flask-login
+werkzeug
+
+
+<li><a href="{{ url_for('fresh') }}">Fresh</a></li>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('remedial') }}">Remedial</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('note') }}">note</a></li>
+                <li><a href="{{ url_for('quiz') }}">quiz</a></li>
+                <li><a href="{{ url_for('service') }}">service</a></li>
+                <li><a href="{{ url_for('story') }}">story</a></li>

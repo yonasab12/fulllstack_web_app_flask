@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freshcom</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        :root {
+            --text-color: #00fbff;
+            --bg-color: #323234;
+            --white: #fff;
+            --black: #000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Dosis', sans-serif;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--white);
+        }
+
+        header {
+            padding: 20px;
+            border-radius: 20px;
+            margin: 10px;
+            border: 3px solid var(--text-color);
+            box-shadow: 0 0 30px var(--text-color);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2rem;
+            color: var(--white);
+        }
+
+        .logo span {
+            color: var(--text-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        nav a {
+            color: #fa7e12;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--text-color);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .wrapper {
+            padding: 2rem;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            color: var(--black);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card i {
+            font-size: 2rem;
+            color: #581ed6;
+            margin-bottom: 1rem;
+        }
+
+        .card a {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #fa7e12;
+            color: var(--white);
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="#"><span>Fresh</span>com</a></div>
+            <ul>
+                
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('remedial') }}">Remedial</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('note') }}">note</a></li>
+                <li><a href="{{ url_for('quiz') }}">quiz</a></li>
+                <li><a href="{{ url_for('service') }}">service</a></li>
+                <li><a href="{{ url_for('story') }}">story</a></li>
+
+
+
+
+
+
+
+
+
+
+
+           
+            </ul>
+            <button class="hamburger">
+                <div class="bar"></div>
+            </button>
+        </nav>
+    </header>
+
+    <section class="wrapper">
+        <h1>Freshman</h1>
+        <p>We offer comprehensive services to help people work better through standards of excellence and training.</p>
+        
+        <div class="content-box">
+            <div class="card">
+                <i class='bx bx-laptop'></i>
+                <h2>Maths</h2>
+                <p>Download and try it</p>
+                <a href="maths.pdf">Download</a>
+            </div>
+            <!-- Repeat similar card structure for other subjects -->
+        </div>
+    </section>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav ul');
+
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

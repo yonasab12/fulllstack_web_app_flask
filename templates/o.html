@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduAI - Smart Learning Platform</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        :root {
+            --primary-blue: #4f46e5;
+            --accent-purple: #8b5cf6;
+            --text-light: #e0e7ff;
+            --bg-dark: #1f2937;
+            --dark-01: #111827;
+            --success-green: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--dark-01);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: var(--primary-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-purple);
+        }
+
+        .cta-btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .primary-btn {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+        }
+
+        .secondary-btn {
+            border: 2px solid var(--accent-purple);
+            color: var(--accent-purple);
+        }
+
+        .secondary-btn:hover {
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        .hero {
+            padding: 10rem 5% 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--dark-01) 40%, rgba(79, 70, 229, 0.1));
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #818cf8, var(--primary-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .features {
+            padding: 4rem 5%;
+            background: var(--dark-01);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            background: var(--bg-dark);
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .ai-video {
+            padding: 4rem 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .video-container {
+            background: #2d3748;
+            border-radius: 15px;
+            padding: 1rem;
+            position: relative;
+            min-height: 300px;
+        }
+
+        .quiz-section {
+            padding: 4rem 5%;
+            background: var(--bg-dark);
+        }
+
+        .quiz-card {
+            background: var(--dark-01);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .quiz-progress {
+            height: 5px;
+            background: #374151;
+            border-radius: 3px;
+            margin: 1rem 0;
+        }
+
+        .quiz-progress::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 100%;
+            background: var(--success-green);
+            border-radius: 3px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .ai-video {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class='bx bxs-brain'></i>
+            EduAI
+        </div>
+        <nav class="nav-links">
+            <a href="#courses">Courses</a>
+            <a href="#quiz">Quiz Maker</a>
+            <a href="#video">AI Video</a>
+        </nav>
+        <div class="auth-buttons">
+            <a href="{{ url_for('signup') }}" class="cta-btn primary-btn">Sign Up</a>
+            <a href="{{ url_for('login') }}" class="cta-btn secondary-btn">Login</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Next-Gen AI Learning Experience</h1>
+        <p>Smart education platform with AI-powered quizzes and video summaries</p>
+    </section>
+
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class='bx bxs-rocket feature-icon'></i>
+                <h3>AI Quiz Generator</h3>
+                <p>Automatically create quizzes from any study material</p>
+            </div>
+            <div class="feature-card">
+                <i class='bx bxs-video feature-icon'></i>
+                <h3>Video Summaries</h3>
+                <p>Key insights from long lectures in minutes</p>
+            </div>
+            <div class="feature-card">
+                <i class='bx bxs-store feature-icon'></i>
+                <h3>Course Marketplace</h3>
+                <p>Create and sell your own video courses</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="ai-video" id="video">
+        <div class="video-container">
+            <div class="video-placeholder" style="height: 100%; display: grid; place-items: center; color: #6b7280;">
+                <i class='bx bxs-video-plus' style="font-size: 3rem;"></i>
+            </div>
+        </div>
+        <div class="video-content">
+            <h2>AI-Powered Video Processing</h2>
+            <ul style="list-style: none; margin-top: 1rem;">
+                <li style="padding: 0.5rem 0;"><i class='bx bx-check' style="color: var(--success-green);"></i> Automatic chapter markers</li>
+                <li style="padding: 0.5rem 0;"><i class='bx bx-check' style="color: var(--success-green);"></i> Key concept extraction</li>
+                <li style="padding: 0.5rem 0;"><i class='bx bx-check' style="color: var(--success-green);"></i> Smart note generation</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="quiz-section" id="quiz">
+        <h2 style="text-align: center;">AI-Powered Quizzes</h2>
+        <div class="quiz-card">
+            <h3>Sample AI-Generated Quiz</h3>
+            <p>Machine Learning Basics • 5 Questions</p>
+            <div class="quiz-progress"></div>
+            <div style="margin-top: 1.5rem;">
+                <a href="{{ url_for('login') }}" class="cta-btn primary-btn">Start Quiz (Login Required)</a>
+                <a href="{{ url_for('login') }}" class="cta-btn secondary-btn">Save Progress (Login Required)</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="padding: 2rem 5%; text-align: center; background: var(--dark-01); margin-top: 4rem;">
+        <p>&copy; 2025 EduAI. All rights reserved.</p>
+        <div style="margin-top: 1rem;">
+            <a href="#privacy" style="color: var(--text-light); margin: 0 1rem;">Privacy Policy</a>
+            <a href="#terms" style="color: var(--text-light); margin: 0 1rem;">Terms of Service</a>
+        </div>
+    </footer>
+</body>
+</html>
